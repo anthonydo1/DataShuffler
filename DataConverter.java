@@ -4,8 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class DataConverter {
 	
@@ -29,23 +28,28 @@ public class DataConverter {
 	public String[] convert() throws IOException {
 		FileReader fr = new FileReader(file);
 		BufferedReader br = new BufferedReader(fr);
-		List<String> ids = new ArrayList<>();
+		
+		String firstLine = br.readLine();
+		String[] str = firstLine.split(" ");
+		String[] ids = new String[Integer.parseInt(str[3])];
 		
 		boolean endOfFile = false;
+		int count = 0;
 		
 		while (endOfFile == false) {
 			String id = br.readLine();
 			if (id == null) {
 				endOfFile = true;
 			} else {
-				ids.add(id);	
+				ids[count] = id;
+				count++;
 			}
 		}
 		
 		br.close();
 		fr.close();
 
-		return ids.toArray(new String[0]);
+		return ids;
 	}
 	
 }

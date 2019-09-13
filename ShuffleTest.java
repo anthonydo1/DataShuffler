@@ -25,6 +25,7 @@ class ShuffleTest {
 		
 		BufferedReader Out = new BufferedReader(new FileReader("DoAnthonyShuffled.txt"));
 		BufferedReader In = new BufferedReader(new FileReader("Target2.txt"));
+		
 		String expectedLine;
 		
 		while ((expectedLine = In.readLine()) != null) {
